@@ -1,0 +1,35 @@
+{
+  "categories": [
+    {
+      "category_id": "????",
+      "parent_id": "????",
+      "id_path": "????",
+      "category": "????",
+      "position": "????",
+      "status": "????",
+      "product_count": "????",
+      "seo_name": "????",
+      "seo_path": "????"
+    }
+  ],
+  "params": {
+    "category_id": 1,
+    "visible": true,
+    "current_category_id": 1,
+    "simple": true,
+    "plain": true,
+    "limit": 1,
+    "item_ids": "????",
+    "group_by_level": true,
+    "get_images": true,
+    "category_delimiter": "????",
+    "get_frontend_urls": true,
+    "max_nesting_level": "????",
+    "sort_order": "????",
+    "sort_by": "????",
+    "sort_order_rev": "????",
+    "items_per_page": "????",
+    "page": 1,
+    "total_items": 1
+  }
+}

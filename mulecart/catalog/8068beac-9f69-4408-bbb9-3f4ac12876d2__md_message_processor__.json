@@ -1,0 +1,16 @@
+{
+    "inputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "#_custom_mule_metadata_type_#",
+            "typeId": "cscartJsonData"
+        }
+    },
+    "outputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "#_custom_mule_metadata_type_#",
+            "typeId": "JsonToJavaConverter"
+        }
+    },
+    "id": "8068beac-9f69-4408-bbb9-3f4ac12876d2",
+    "version": "5.2.0.0"
+}

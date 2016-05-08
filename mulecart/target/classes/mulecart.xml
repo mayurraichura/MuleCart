@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:metadata="http://www.mulesoft.org/schema/mule/metadata" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns:jdbc-ee="http://www.mulesoft.org/schema/mule/ee/jdbc" xmlns:db="http://www.mulesoft.org/schema/mule/db" xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:quartz="http://www.mulesoft.org/schema/mule/quartz" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/quartz http://www.mulesoft.org/schema/mule/quartz/current/mule-quartz.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.mulesoft.org/schema/mule/ee/jdbc http://www.mulesoft.org/schema/mule/ee/jdbc/current/mule-jdbc-ee.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
+    <quartz:connector name="Quartz" validateConnections="true" doc:name="Quartz" />
+    <http:request-config name="HTTP_Request_Configuration" host="mvcscart.tk/" basePath="api/" doc:name="HTTP Request Configuration" port="8081">
+        <http:basic-authentication username="cscart@vienerconsulting.com" password="4T1brY7lJrD81Wj2sPP2Y26Malh0t881"/>
+    </http:request-config>
+    <jdbc-ee:mssql-data-source name="MS_SQL_Data_Source" user="Administrator " password="terps.302!" url="jdbc:sqlserver://64.251.10.132;databaseName=KWRI" transactionIsolation="UNSPECIFIED" doc:name="MS SQL Data Source"/>
+    <db:generic-config name="Generic_Database_Configuration" url="jdbc:sqlserver://localhost:1433;user=sa;password=IN$01$SRI$CI;DataBaseName=KWRI" driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver" doc:name="Generic Database Configuration"/>
+    <flow name="MuleCart:QuerzTrigger">
+        <poll doc:name="Poll">
+            <set-payload value="#['hi']" doc:name="Set Payload"/>
+        </poll>
+        <echo-component doc:name="Echo The Payload Into Console"/>
+        <!-- <quartz:inbound-endpoint repeatInterval="60000" repeatCount="2"  responseTimeout="10000" doc:name="Quartz" connector-ref="Quartz" jobName="Quartz">
+            <quartz:event-generator-job groupName="Quartz" jobGroupName="Quartz">
+                <quartz:payload>ih</quartz:payload>
+            </quartz:event-generator-job>
+        </quartz:inbound-endpoint> -->
+        <flow-ref name="MuleCart:InsertCategoriesIntoCounterPart" doc:name="MuleCart:InsertCategoriesIntoCounterPart"/>
+        <exception-strategy ref="mulecartCatch_Exception_Strategy" doc:name="Reference Exception Strategy"/>
+    </flow>
+    <flow name="MuleCart:InsertCategoriesIntoCounterPart">
+        <http:request config-ref="HTTP_Request_Configuration" path="categories" method="GET" doc:name="CS CART Categories Information" doc:description="Fetch Categories Information from mvcscart.tk by Passing theBasic Auth "/>
+        <dw:transform-message metadata:id="8068beac-9f69-4408-bbb9-3f4ac12876d2" doc:name="Json to Java Converter">
+            <dw:input-payload doc:sample="json_1.json"/>
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/java
+---
+{
+	categoriesList: payload.categories map ((category , indexOfCategory) -> {
+		category: category.category,
+		category_id: category.category_id,
+		id_path: category.id_path,
+		parent_id: category.parent_id,
+		position: category.position,
+		product_count: category.product_count,
+		seo_name: category.seo_name,
+		seo_path: category.seo_path,
+		status: category.status
+	}),
+	paramsMap: {
+		category_delimiter: payload.params.category_delimiter,
+		category_id: payload.params.category_id as :string,
+		current_category_id: payload.params.current_category_id as :string,
+		get_frontend_urls: payload.params.get_frontend_urls as :string,
+		get_images: payload.params.get_images as :string,
+		group_by_level: payload.params.group_by_level as :string,
+		item_ids: payload.params.item_ids,
+		items_per_page: payload.params.items_per_page,
+		limit: payload.params.limit as :string,
+		max_nesting_level: payload.params.max_nesting_level,
+		page: payload.params.page as :string,
+		plain: payload.params.plain as :string,
+		simple: payload.params.simple as :string,
+		sort_by: payload.params.sort_by,
+		sort_order: payload.params.sort_order,
+		sort_order_rev: payload.params.sort_order_rev,
+		total_items: payload.params.total_items as :string,
+		visible: payload.params.visible as :string
+	}
+} as :object {
+	class : "com.api.mvcscart.counterpoint.JsonToJava"
+}]]></dw:set-payload>
+        </dw:transform-message>
+        <logger level="INFO" doc:name="Log Categories Information Before DB" message="#[payload]"/>
+        <db:select config-ref="Generic_Database_Configuration" doc:name="Insert Categories Into DB" doc:description="InSert Into CounterPart SQL table ">
+            <db:parameterized-query><![CDATA[SELECT * FROM [dbo].[AR_CATEG_COD]]]></db:parameterized-query>
+        </db:select>
+        <logger level="INFO" doc:name="Logger"/>
+        <exception-strategy ref="mulecartCatch_Exception_Strategy" doc:name="Reference Exception Strategy"/>
+    </flow>
+    <catch-exception-strategy name="mulecartCatch_Exception_Strategy">
+        <logger message="#[payload]" level="INFO" doc:name="Logger"/>
+    </catch-exception-strategy>
+</mule>
