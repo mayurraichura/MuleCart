@@ -1,0 +1,403 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "products": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "product_id": {
+            "type": "string"
+          },
+          "product": {
+            "type": "string"
+          },
+          "product_code": {
+            "type": "string"
+          },
+          "product_type": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "company_id": {
+            "type": "string"
+          },
+          "approved": {
+            "type": "string"
+          },
+          "list_price": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "string"
+          },
+          "weight": {
+            "type": "string"
+          },
+          "length": {
+            "type": "string"
+          },
+          "width": {
+            "type": "string"
+          },
+          "height": {
+            "type": "string"
+          },
+          "shipping_freight": {
+            "type": "string"
+          },
+          "low_avail_limit": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string"
+          },
+          "updated_timestamp": {
+            "type": "string"
+          },
+          "usergroup_ids": {
+            "type": "string"
+          },
+          "is_edp": {
+            "type": "string"
+          },
+          "edp_shipping": {
+            "type": "string"
+          },
+          "unlimited_download": {
+            "type": "string"
+          },
+          "tracking": {
+            "type": "string"
+          },
+          "free_shipping": {
+            "type": "string"
+          },
+          "feature_comparison": {
+            "type": "string"
+          },
+          "zero_price_action": {
+            "type": "string"
+          },
+          "is_pbp": {
+            "type": "string"
+          },
+          "is_op": {
+            "type": "string"
+          },
+          "is_oper": {
+            "type": "string"
+          },
+          "is_returnable": {
+            "type": "string"
+          },
+          "return_period": {
+            "type": "string"
+          },
+          "avail_since": {
+            "type": "string"
+          },
+          "out_of_stock_actions": {
+            "type": "string"
+          },
+          "localization": {
+            "type": "string"
+          },
+          "min_qty": {
+            "type": "string"
+          },
+          "max_qty": {
+            "type": "string"
+          },
+          "qty_step": {
+            "type": "string"
+          },
+          "list_qty_count": {
+            "type": "string"
+          },
+          "tax_ids": {
+            "type": "string"
+          },
+          "age_verification": {
+            "type": "string"
+          },
+          "age_limit": {
+            "type": "string"
+          },
+          "options_type": {
+            "type": "string"
+          },
+          "exceptions_type": {
+            "type": "string"
+          },
+          "details_layout": {
+            "type": "string"
+          },
+          "shipping_params": {
+            "type": "string"
+          },
+          "buy_now_url": {
+            "type": "string"
+          },
+          "facebook_obj_type": {
+            "type": "string"
+          },
+          "tax_code": {
+            "type": "string"
+          },
+          "upc_code": {
+            "type": "string"
+          },
+          "price": {
+            "type": "string"
+          },
+          "category_ids": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          },
+          "seo_name": {
+            "type": "string"
+          },
+          "seo_path": {
+            "type": "string"
+          },
+          "average_rating": {
+            "type": "null"
+          },
+          "discussion_type": {
+            "type": "string"
+          },
+          "discussion_thread_id": {
+            "type": "string"
+          },
+          "main_category": {
+            "type": "integer"
+          },
+          "base_price": {
+            "type": "string"
+          },
+          "selected_options": {
+            "type": "array",
+            "items": {}
+          },
+          "has_options": {
+            "type": "boolean"
+          },
+          "product_options": {
+            "type": "array",
+            "items": {}
+          },
+          "discounts": {
+            "type": "object",
+            "properties": {
+              "A": {
+                "type": "integer"
+              },
+              "P": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "A",
+              "P"
+            ]
+          },
+          "product_features": {
+            "type": "array",
+            "items": {}
+          },
+          "qty_content": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "product_id",
+          "product",
+          "product_code",
+          "product_type",
+          "status",
+          "company_id",
+          "approved",
+          "list_price",
+          "amount",
+          "weight",
+          "length",
+          "width",
+          "height",
+          "shipping_freight",
+          "low_avail_limit",
+          "timestamp",
+          "updated_timestamp",
+          "usergroup_ids",
+          "is_edp",
+          "edp_shipping",
+          "unlimited_download",
+          "tracking",
+          "free_shipping",
+          "feature_comparison",
+          "zero_price_action",
+          "is_pbp",
+          "is_op",
+          "is_oper",
+          "is_returnable",
+          "return_period",
+          "avail_since",
+          "out_of_stock_actions",
+          "localization",
+          "min_qty",
+          "max_qty",
+          "qty_step",
+          "list_qty_count",
+          "tax_ids",
+          "age_verification",
+          "age_limit",
+          "options_type",
+          "exceptions_type",
+          "details_layout",
+          "shipping_params",
+          "buy_now_url",
+          "facebook_obj_type",
+          "tax_code",
+          "upc_code",
+          "price",
+          "category_ids",
+          "seo_name",
+          "seo_path",
+          "average_rating",
+          "discussion_type",
+          "discussion_thread_id",
+          "main_category",
+          "base_price",
+          "selected_options",
+          "has_options",
+          "product_options",
+          "discounts",
+          "product_features",
+          "qty_content"
+        ]
+      }
+    },
+    "params": {
+      "type": "object",
+      "properties": {
+        "area": {
+          "type": "string"
+        },
+        "use_caching": {
+          "type": "boolean"
+        },
+        "extend": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "custom_extend": {
+          "type": "array",
+          "items": {}
+        },
+        "pname": {
+          "type": "string"
+        },
+        "pshort": {
+          "type": "string"
+        },
+        "pfull": {
+          "type": "string"
+        },
+        "pkeywords": {
+          "type": "string"
+        },
+        "feature": {
+          "type": "array",
+          "items": {}
+        },
+        "type": {
+          "type": "string"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "action": {
+          "type": "string"
+        },
+        "filter_variants": {
+          "type": "array",
+          "items": {}
+        },
+        "features_hash": {
+          "type": "string"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "bid": {
+          "type": "integer"
+        },
+        "match": {
+          "type": "string"
+        },
+        "tracking": {
+          "type": "array",
+          "items": {}
+        },
+        "get_frontend_urls": {
+          "type": "boolean"
+        },
+        "items_per_page": {
+          "type": "string"
+        },
+        "sort_by": {
+          "type": "string"
+        },
+        "sort_order": {
+          "type": "string"
+        },
+        "sort_order_rev": {
+          "type": "string"
+        },
+        "total_items": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "area",
+        "use_caching",
+        "extend",
+        "custom_extend",
+        "pname",
+        "pshort",
+        "pfull",
+        "pkeywords",
+        "feature",
+        "type",
+        "page",
+        "action",
+        "filter_variants",
+        "features_hash",
+        "limit",
+        "bid",
+        "match",
+        "tracking",
+        "get_frontend_urls",
+        "items_per_page",
+        "sort_by",
+        "sort_order",
+        "sort_order_rev",
+        "total_items"
+      ]
+    }
+  },
+  "required": [
+    "products",
+    "params"
+  ]
+}

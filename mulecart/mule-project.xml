@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<mule-project xmlns="http://www.mulesoft.com/tooling/project" runtimeId="org.mule.tooling.server.3.7.3.ee" schemaVersion="5.3.0.0">
+<mule-project xmlns="http://www.mulesoft.com/tooling/project" runtimeId="org.mule.tooling.server.3.6.1" schemaVersion="5.3.0.0">
     <name>mulecart</name>
     <description></description>
+    <muleExtension name="Google Spreadsheets" qualifier="org.mule.tooling.ui.contribution.google-spreadsheets.3.5.0"/>
 </mule-project>

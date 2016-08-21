@@ -1,0 +1,46 @@
+{
+  "categories": [
+    {
+      "category_id": "2",
+      "parent_id": "0",
+      "id_path": "2",
+      "category": "POS Systems",
+      "position": "20",
+      "status": "A",
+      "product_count": "3",
+      "seo_name": "pos-systems",
+      "seo_path": ""
+    },
+    {
+      "category_id": "1",
+      "parent_id": "0",
+      "id_path": "1",
+      "category": "NCAA",
+      "position": "10",
+      "status": "A",
+      "product_count": "2",
+      "seo_name": "ncaa",
+      "seo_path": ""
+    }
+  ],
+  "params": {
+    "category_id": 0,
+    "visible": false,
+    "current_category_id": 0,
+    "simple": false,
+    "plain": true,
+    "limit": 0,
+    "item_ids": "",
+    "group_by_level": false,
+    "get_images": false,
+    "category_delimiter": "/",
+    "get_frontend_urls": false,
+    "max_nesting_level": null,
+    "sort_order": "asc",
+    "sort_by": "position",
+    "sort_order_rev": "desc",
+    "items_per_page": "10",
+    "page": 1,
+    "total_items": 2
+  }
+}
