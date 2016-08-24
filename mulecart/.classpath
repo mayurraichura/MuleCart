@@ -8,9 +8,9 @@
 	<classpathentry kind="src" output="target/test-classes" path="src/test/resources"/>
 	<classpathentry kind="src" path="src/main/api"/>
 	<classpathentry kind="src" path="src/test/munit"/>
+	<classpathentry kind="lib" path="C:/Users/lenovo/Desktop/TEST/work folder/sqljdbc4-3.0.jar"/>
 	<classpathentry kind="con" path="MULE_LIB/Google Spreadsheets/org.mule.tooling.ui.contribution.google-spreadsheets.3.5.0"/>
 	<classpathentry kind="con" path="MULE_RUNTIME/org.mule.tooling.server.3.7.0"/>
 	<classpathentry kind="src" path="mappings"/>
-	<classpathentry kind="lib" path="lib/sqljdbc4-3.0.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
