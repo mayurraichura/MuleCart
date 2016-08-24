@@ -5,7 +5,6 @@ package com.api.mvcscart.transformers;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.stream.Collectors;
 
 import org.mule.util.CaseInsensitiveHashMap;
 
